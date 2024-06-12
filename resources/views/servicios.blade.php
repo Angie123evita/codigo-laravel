@@ -1,14 +1,23 @@
 @extends('layout')
 
+@section('title', 'Servicios')
+
 @section('content')
-    <h2>Servicios </h2>
-    <ul>
-        @if ($servicios)
-            @foreach ($servicios as $item)
-                <li>{{$item ['titulo']}}</li>
-            @endforeach
-        @else
-            <li>No existe ningun servicio que mostrar</li>
-        @endif
-    </ul>
+<h2>Servicios</h2>
+<table>
+    <tr>
+    @if($servicios)
+        @foreach($servicios as $item)
+            <td>{{ $item->titulo }}<br>{{ $item->descripcion }}</td>
+            
+        @endforeach
+    @else
+        <li>No hay servicios disponibles</li>
+    @endif
+    </tr>
+</table>
+<!--
+<tr>
+    <td colspan="4"></td>
+</tr> -->
 @endsection
