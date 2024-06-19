@@ -13,3 +13,7 @@ Route::view('contacto', 'contacto')->name('contacto');
 //Route::resource('servicios','App\Http\Controllers\Servicios2Controller')->except('index','show');
 //Generar rutas del controlador servicios 3
 //Route::resource('servicios','App\Http\Controllers\ServiciosController');
+Route::get('/servicios/crear', [ServiciosController::class, 'create'])->name('servicios.create');
+ Route::get('servicios/{id}', 'ServiciosController@show')->name('servicios.show');
+ Route::post('/servicios', [ServiciosController::class, 'store'])->name('servicios.store');
+ Route::get('/servicios', [ServiciosController::class, 'index'])->name('servicios.index');
