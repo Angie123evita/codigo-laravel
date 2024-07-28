@@ -4,9 +4,12 @@
 
 @section('content')
 <div class="container">
+@auth
+            <img src="/storage/{{ $servicio->image }}" alt="{{ $servicio->titulo }}" width="300" height="100">
+        @endauth
     <h1>Editar servicio</h1>
 @include('partials.validation-errors')
-    <form action="{{ route('servicios.update',$servicio) }}" method="POST">
+    <form action="{{ route('servicios.update',$servicio) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
         @method('PATCH')
         <div class="form-group">
